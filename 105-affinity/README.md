@@ -47,6 +47,12 @@
   * even if the topologyKey would require them to do so
   * This happens because the antiAffinity is validated in the moment of scheduling
 
+* Get events from a `pending` pod:
+
+  ```shell
+  kubectl describe po <POD-NAME>
+  ```
+
 ### Clean up
 
 * Delete the deployment
