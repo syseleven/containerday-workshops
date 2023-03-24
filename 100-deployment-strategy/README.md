@@ -1,5 +1,23 @@
 # Deployment Strategy
 
+## Preparation
+
+* Before you begin with the actual exercise please make sure to follow these steps to work in your own environment:
+
+  ```shell
+  read -p "Please enter your name (without blanks e.g. johndoe): " YOURNAME
+  export YOURNAME
+  kubectl create ns ${YOURNAME}
+  kubectl label namespace ${YOURNAME} deepdive-pgd=true
+  kubectl config set-context --current --namespace=${YOURNAME}
+  ```
+
+* Clone this repository to your working station and change into the directory for the following exercises
+
+---
+
+## Exercise
+
 ## Part 1 - Recreate
 
 * Create a deployment with nginx 1.22.0 pods and a strategy of Recreate
@@ -83,13 +101,6 @@ A deployment strategy of `Recreate` causes a downtime for the application.
   Scaled down replica set rollingupdate-xxxxxxxx to 0
   ```
 
-### Conclusion
-
-A deployment strategy of `RollingUpdate` causes no downtime for the application and is the basis
-for production ready update rollouts such as Blue/Green- and Canary-Deployments.
-
----
-
 ### Clean up
 
 * Delete the deployments before proceeding with the next hands-on session:
@@ -97,3 +108,12 @@ for production ready update rollouts such as Blue/Green- and Canary-Deployments.
   ```shell
   kubectl -n ${YOURNAME} delete deployment recreate rollingupdate
   ```
+
+---
+
+### Conclusion
+
+A deployment strategy of `RollingUpdate` causes no downtime for the application and is the basis
+for production ready update rollouts such as Blue/Green- and Canary-Deployments.
+
+`RollingUpdate` is the default for deployments.

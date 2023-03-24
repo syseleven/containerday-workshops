@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+spec:
+  replicas: 8
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      affinity:
+        # Pod soll NICHT auf und der selben Node gescheduled werden
+        podAntiAffinity:
+          # aber wenn er schon mal drauf läuft, dann egal
+          preferredDuringSchedulingIgnoredDuringExecution:
+            - weight: 1
+              podAffinityTerm:
+                # anhand folgender Pod Labels soll entschieden werden
+                labelSelector:
+                  matchExpressions:
+                    - key: "app"
+                      operator: In
+                      values:
+                        - nginx
+                # die Auswirkung soll auf die Node anhand ihres Namens erfolgen
+                topologyKey: "kubernetes.io/hostname"
+      containers:
+      - image: nginx:1.23.0
+        name: nginx
