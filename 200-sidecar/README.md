@@ -34,7 +34,7 @@ kubectl describe -f sidecar-echo.yaml
 kubectl port-forward pod/sidecar-container-demo 8080:80
 ```
 
-* Go to http://localhost:8080
+* Visit http://localhost:8080
 
 ### Clean up
 
