@@ -1,22 +1,26 @@
 # Sidecar Container
 
-## Achievement
+## Preparation
+
+* Before you begin with the actual exercise please make sure to follow these steps to work in your own environment:
+
+  ```shell
+  read -p "Please enter your name (without blanks e.g. johndoe): " YOURNAME
+  export YOURNAME
+  kubectl create ns ${YOURNAME}
+  kubectl label namespace ${YOURNAME} deepdive-pgd=true
+  kubectl config set-context --current --namespace=${YOURNAME}
+  ```
+
+* Clone this repository to your working station and change into the directory for the following exercises
+
+---
+
+## Task
 
 Deploy sidecar containers for different use cases.
 
 ---
-
-### Prepare Namespace
-
-* Let's create a namespace for our needs and switch into it.
-
-```shell
-kubectl create namespace <YOURNAME>
-
-kubectl label namespace <YOURNAME> golem-workshop=true
-
-kubectl config set-context --current --namespace="<YOURNAME>"
-```
 
 ### Deploy sidecar containers - Example 1
 
