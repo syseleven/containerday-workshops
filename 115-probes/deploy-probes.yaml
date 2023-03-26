@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-probes
+  name: nginx-probes
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-probes
+  template:
+    metadata:
+      labels:
+        app: nginx-probes
+    spec:
+      containers:
+      - image: nginx:1.23.0
+        name: nginx-probes
+        livenessProbe:
+          exec:
+            command:
+            - cat
+            - /usr/share/nginx/html/index.html
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          timeoutSeconds: 1
+          failureThreshold: 3
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          initialDelaySeconds: 5
+          periodSeconds: 5
