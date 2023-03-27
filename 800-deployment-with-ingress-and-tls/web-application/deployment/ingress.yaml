@@ -8,10 +8,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - web-application-CHANGEME.workshop.metakube.org
+        - web-application-<YOURNAME>.workshop.metakube.org # <-- please adjust
       secretName: workshop-tls-cert
   rules:
-    - host: web-application-CHANGEME.workshop.metakube.org
+    - host: web-application-<YOURNAME>.workshop.metakube.org # <-- please adjust
       http:
         paths:
           - path: /
