@@ -4,29 +4,29 @@
 
 [ArtifactHub - ingress-nginx](https://artifacthub.io/packages/helm/ingress-nginx/ingress-nginx)
 
-* Install nginx ingress controller
+* Install ingress controller "ingress-nginx"
 
-## Create Namespace called ingress-nginx
+* Create a namespace
 
-```shell
-kubectl create namespace ingress-nginx
-```
+  ```shell
+  kubectl create namespace ingress-nginx
+  ```
 
-## Add Ingress NGINX Helm Repo and update Cache
+* Add ingress-nginx Helm Repo and update Cache
 
-```shell
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-```
+  ```shell
+  helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+  helm repo update
+  ```
 
-## Install Ingress NGINX Controller with provided values.yaml, newest version
+* Install ingress-nginx with provided values.yaml
 
-```shell
-helm upgrade --install -f values.yaml --namespace ingress-nginx ingress-nginx ingress-nginx/ingress-nginx --version=4.3.0
-```
+  ```shell
+  helm upgrade --install -f values.yaml --namespace ingress-nginx ingress-nginx ingress-nginx/ingress-nginx --version=4.3.0
+  ```
 
-## Check if Ingress NGINX Controller is up and running
+* Verify ingress-nginx is up and running
 
-```shell
-kubectl --namespace ingress-nginx get services -o wide -w ingress-nginx-controller
-```
+  ```shell
+  kubectl --namespace ingress-nginx get services -o wide -w ingress-nginx-controller
+  ```
