@@ -8,10 +8,10 @@ spec:
   ingressClassName: nginx
   tls:
     - hosts:
-        - web-application-canary-johndoe.workshop.metakube.org # <-- please adjust
+        - web-application-canary-<YOURNAME>.workshop.metakube.org # <-- please adjust <YOURNAME>
       secretName: workshop-tls-cert
   rules:
-    - host: web-application-canary-johndoe.workshop.metakube.org # <-- please adjust
+    - host: web-application-canary-<YOURNAME>.workshop.metakube.org # <-- please adjust <YOURNAME>
       http:
         paths:
           - path: /echo
