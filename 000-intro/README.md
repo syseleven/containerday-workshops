@@ -8,7 +8,7 @@
 * **Works with k8s version** 1.24
 * **Workshop Domain:** *.workshop.metakube.org
 * **Optimized for** Linux and MacOS
-* Windows Users use WSL and/or PowerShell
+* Windows Users use WSL and/or PowerShell (you must be able to use shell variables)
 
 ## Prerequisites for trainers
 
@@ -23,6 +23,7 @@ You need to have these tools installed on your local machine:
 - kubectl (>1.24)
 - helm (>3.10)
 - helmfile
+- Optional: kubectx
 
 ## Preparation for participants
 

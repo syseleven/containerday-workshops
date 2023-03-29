@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: echo-blue
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: echo
+      version: blue
+  template:
+    metadata:
+      labels:
+        app: echo
+        version: blue
+    spec:
+      containers:
+        - name: echo
+          image: "docker.io/hashicorp/http-echo"
+          args:
+            - -listen=:80
+            - --text="echo-blue"
+          ports:
+            - name: http
+              protocol: TCP
+              containerPort: 80

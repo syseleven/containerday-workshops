@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+  name: ingress-echo
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - web-application-canary-johndoe.workshop.metakube.org # <-- please adjust
+      secretName: workshop-tls-cert
+  rules:
+    - host: web-application-canary-johndoe.workshop.metakube.org # <-- please adjust
+      http:
+        paths:
+          - path: /echo
+            pathType: Exact
+            backend:
+              service:
+                name: echo-blue
+                port:
+                  number: 80

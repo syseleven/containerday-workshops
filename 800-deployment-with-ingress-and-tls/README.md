@@ -33,3 +33,8 @@ Deploy a full web application to your namespace which uses external-dns, ingress
   ```shell
   kubectl apply -f web-application/deployment/ingress.yaml
   ```
+
+## Conclusion
+
+* we learned how powerful the combined tools external-dns, ingress-nginx and cert-manager are
+* it is easy to publish applications and get certificates and a DNS name directly from a k8s resource
