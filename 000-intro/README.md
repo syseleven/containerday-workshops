@@ -15,6 +15,7 @@
 * rotate AWS route53 token for external-dns and cert-manager
 * AWS Route53: remove old DNS entries (*.workshop.metakube.org)
 * Cluster setup via Terraform
+* Create 3 local storage worker nodes for mysql example
 
 ## Prerequisites for participants
 
