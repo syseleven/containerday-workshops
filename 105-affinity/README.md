@@ -34,7 +34,7 @@
   kubectl get pods -l app=nginx -o wide
   ```
 
-* Now scale the deployed up until there should be more pods than nodes
+* We have 8 worker nodes and now scale the deployment up until there are more pods than nodes available
 
   ```shell
   kubectl scale deployment nginx --replicas=10
@@ -77,7 +77,7 @@
   kubectl get pods -l app=nginx -o wide
   ```
 
-* Now scale the deployed up until there should be more pods than nodes
+* We have 8 worker nodes and now scale the deployment up until there should be more pods than nodes
 
   ```shell
   kubectl scale deployment nginx --replicas=10
@@ -103,7 +103,7 @@ kubectl delete -f deploy-antiaffinity-required.yaml
 ### Conclusion
 
 You can now tell the difference between required and preferred (anti)Affinity
-and us it to distribute pods to nodes.
+and use it to distribute pods to nodes.
 
 Also there are settings such as:
 - nodeAffinity

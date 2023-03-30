@@ -13,7 +13,7 @@ Deploy external-dns in the cluster as a central service.
   helm repo update
   ```
 
-* Replace all occurrences of `CHANGEME` in values.yaml with the secrets
+* Replace all occurrences of `CHANGEME` in `values.yaml` with the secrets
 provided by the trainer.
 
 * Install external-dns with Helm:
@@ -47,7 +47,7 @@ provided by the trainer.
 * Check Deployment, Services and Pods from previous Deployment and watch out for External IP for Service `service/nginx`
 
   ```shell
-  kubectl get deployment,pods,services
+  kubectl get deployment,pods,services --namespace external-dns
   ```
 
 * Should look like this

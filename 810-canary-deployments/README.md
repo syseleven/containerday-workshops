@@ -26,7 +26,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
 * Adjust your individual hostname in `web-application-blue/ingress-blue.yaml`
 
-* Adjust your individual hostname in `web-application-green/ingress-green.yaml`
+* Adjust your individual hostname in `web-application-green/ingress-green-canary.yaml`
 
 ## Blue
 
@@ -45,7 +45,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
   kubectl get po,svc,ing
   
   # send requests to our blue application
-  for i in {1..10} ; do curl web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
+  for i in {1..10} ; do curl https://web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
   ```
 
 ### Result
@@ -78,7 +78,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
   kubectl get po,svc,ing
   
   # send requests to our blue application
-  for i in {1..10} ; do curl web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
+  for i in {1..10} ; do curl https://web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
   ```
 
 ### Result
@@ -115,7 +115,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
   ```shell
   # send requests to our blue application
-  for i in {1..10} ; do curl web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
+  for i in {1..10} ; do curl https://web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
   ```
 
 ### Result

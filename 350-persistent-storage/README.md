@@ -70,7 +70,7 @@
     <!DOCTYPE html>
     <html>
     <head>
-    <title>Welcome to the Golem Dive-in Kubernetes workshop!</title>
+    <title>Welcome to the workshop!</title>
     <style>
     html { color-scheme: light dark; }
     body { width: 35em; margin: 0 auto;
@@ -78,7 +78,7 @@
     </style>
     </head>
     <body>
-    <h1>Welcome to the Golem Dive-in Kubernetes workshop!</h1>
+    <h1>Welcome to the workshop!</h1>
     
     <p><em>Thank you!</em></p>
     </body>
@@ -119,5 +119,5 @@
 * To cleanup after this exercise you can optionally run
 
   ```shell
-  kubectl delete -f svc.yaml -f deployment.yaml -f pvc.yaml
+  kubectl delete -f service.yaml -f deployment.yaml -f pvc.yaml
   ```

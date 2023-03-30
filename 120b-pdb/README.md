@@ -15,7 +15,7 @@ Only proceed if you have accomplished the previous section!
   kubectl apply -f php-apache-pdb.yaml
   ```
 
-* Delete HPA, scale down to own replica and find out what node the last pod is runnning on
+* Delete HPA, scale down to one replica and find out what node the last pod is runnning on
   
   ```shell
   kubectl delete -f ../120a-hpa/php-apache-hpa.yaml
