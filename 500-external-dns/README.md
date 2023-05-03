@@ -23,7 +23,7 @@ provided by the trainer.
   ```
 
   ```shell
-  helm upgrade --install external-dns --namespace external-dns --values values.yaml bitnami/external-dns --version=6.10.2
+  helm upgrade --install external-dns --namespace external-dns --values values.yaml bitnami/external-dns --version=6.19.1
   ```
 
 * Check if ExternalDNS Pod is up and running
