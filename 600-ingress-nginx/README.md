@@ -22,7 +22,7 @@
 * Install ingress-nginx with provided values.yaml
 
   ```shell
-  helm upgrade --install -f values.yaml --namespace ingress-nginx ingress-nginx ingress-nginx/ingress-nginx --version=4.3.0
+  helm upgrade --install -f values.yaml --namespace ingress-nginx ingress-nginx ingress-nginx/ingress-nginx --version=4.6.0
   ```
 
 * Verify ingress-nginx is up and running
