@@ -3,7 +3,16 @@ controller:
 #  extraArgs:
 #    default-ssl-certificate: ingress-nginx/workshop-tls-cert
 
-  replicaCount: 3
+  # deploy a Pod on every node
+  kind: DaemonSet
+
+  # only nodes with a Pod can answer HTTP requests
+  # this avoids NAT, network hops and TCP conntrack table exhaustion
+  service:
+    externalTrafficPolicy: Local
+
+  # obsolete due to daemonset
+  # replicaCount: 3
 
   minAvailable: 1
 
@@ -16,12 +25,13 @@ controller:
       memory: 256Mi
 
   autoscaling:
-    enabled: true
+    enabled: false
     minReplicas: 3
     maxReplicas: 6
     targetCPUUtilizationPercentage: 50
     targetMemoryUtilizationPercentage: 50
 
+  # important for HPA
   metrics:
     enabled: true
 

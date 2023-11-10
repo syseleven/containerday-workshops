@@ -1,4 +1,4 @@
-# Deployment Strategy
+# Security
 
 ## Preparation
 
@@ -19,7 +19,7 @@
 
 ## Exercise
 
-## Part 1 - Recreate
+## Part 1 - Secure containers in secure pods
 
 * Create a deployment with nginx 1.24.0 pods and a strategy of Recreate
 

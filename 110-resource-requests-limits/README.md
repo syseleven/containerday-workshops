@@ -61,7 +61,7 @@
 * Show your settings
 
   ```shell
-  kubectl describe limitrange mem-limit-range
+  kubectl -n ${YOURNAME} describe limitrange mem-limit-range
   ```
 
 * Verify the LimitRange is enforced
@@ -69,13 +69,13 @@
 * Create a pod without resource settings in your namespace
 
   ```shell
-  kubectl run nginx-no-limits --image=nginx:1.23.0
+  kubectl -n ${YOURNAME} run nginx-no-limits --image=nginx:1.25.0
   ```
 
 * Verify it gets the settings from the LimitRange assigned automatically
 
   ```shell
-  kubectl get po nginx-no-limits -o yaml
+  kubectl -n ${YOURNAME} get po nginx-no-limits -o yaml
   ```
 
 * Look for the `LimitRanger` annotation
@@ -99,7 +99,7 @@
 * Delete the pod again
 
   ```shell
-  kubectl delete po nginx-no-limits
+  kubectl -n ${YOURNAME} delete po nginx-no-limits
   ```
 
 ---
@@ -109,3 +109,4 @@
 - It is highly recommended to set resource requests and limits to a container
 - These settings are also required by a HorizontalPodAutoscaler we will deploy in another hands-on session
 - You can avoid Pods lacking requests and limit completely by applying a LimitRanger in the given namespace
+- limiting CPU is an anti-pattern nowadays
