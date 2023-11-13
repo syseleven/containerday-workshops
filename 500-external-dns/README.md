@@ -50,12 +50,33 @@ provided by the trainer.
   kubectl get deployment,pods,services --namespace external-dns
   ```
 
-* Should look like this
+* Should look like this (LoadBalancer service might take a few minutes to create)
 
   ```shell
   NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)        AGE
   service/nginx          LoadBalancer   10.240.26.62    185.56.130.x   80:32428/TCP   2m19s
   ```
+
+* View the logs of external-dns
+
+  ```shell
+  kubectl -n external-dns logs -f -l app.kubernetes.io/name=external-dns
+  ```
+  
+  Expected result:
+
+  ```shell
+  time="2023-11-13T08:48:56Z" level=info msg="All records are already up to date"
+  time="2023-11-13T08:49:56Z" level=info msg="Applying provider record filter for domains: [metakube.org. .metakube.org.]"
+  ```
+
+### Verify
+
+* Visit URL https://nginx.workshop.metakube.org
+
+---
+
+### Clean up
 
 * Delete the externaldns-test pod
 

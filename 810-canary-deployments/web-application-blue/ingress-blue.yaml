@@ -4,6 +4,8 @@ metadata:
   annotations:
     ingress.kubernetes.io/rewrite-target: /
   name: ingress-echo
+  labels:
+    version: blue
 spec:
   ingressClassName: nginx
   tls:
@@ -20,4 +22,4 @@ spec:
               service:
                 name: echo-blue
                 port:
-                  number: 80
+                  number: 8080

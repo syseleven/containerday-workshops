@@ -6,7 +6,7 @@ controller:
   # deploy a Pod on every node
   kind: DaemonSet
 
-  # only nodes with a Pod can answer HTTP requests
+  # only nodes with a ingress-controller Pod can answer HTTP requests
   # this avoids NAT, network hops and TCP conntrack table exhaustion
   service:
     externalTrafficPolicy: Local

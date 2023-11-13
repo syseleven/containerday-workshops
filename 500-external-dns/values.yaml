@@ -10,8 +10,8 @@ provider: aws
 # AWS Access keys to inject as environment variables
 aws:
   credentials:
-    accessKey: "CHANGEME"
-    secretKey: "CHANGEME"
+    accessKey: "CHANGEME" # <--- adjust here CHANGEME
+    secretKey: "CHANGEME" # <--- adjust here CHANGEME
     mountPath: "/.aws"
     region: "eu-central-1"
     zoneType: "public"
@@ -26,7 +26,7 @@ interval: "1m"
 registry: "txt"
 
 # When using the TXT registry, a name that identifies this instance of ExternalDNS
-txtOwnerId: "golem-workshop"
+txtOwnerId: "workshop"
 
 ## Modify how DNS records are sychronized between sources and providers (options: sync, upsert-only )
 policy: sync

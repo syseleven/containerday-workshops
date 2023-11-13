@@ -55,8 +55,7 @@ Only proceed if you have accomplished the previous section!
 * Tear down everything
 
   ```shell
-  kubectl delete -f ../120a-hpa/php-apache-hpa.yaml \
-    -f ../120a-hpa/php-apache-service.yaml \
+  kubectl delete -f ../120a-hpa/php-apache-service.yaml \
     -f ../120a-hpa/php-apache-deployment.yaml \
     -f php-apache-pdb.yaml
   ```

@@ -5,10 +5,11 @@
 * Before you begin with the actual exercise please make sure to follow these steps to work in your own environment:
 
   ```shell
-  read -p "Please enter your name (without blanks e.g. johndoe): " YOURNAME
-  export YOURNAME
+  # enter your name
+  # example:
+  # export YOURNAME=janedoe
+  export YOURNAME=<YOURNAME>
   kubectl create ns ${YOURNAME}
-  kubectl label namespace ${YOURNAME} deepdive-pgd=true
   kubectl config set-context --current --namespace=${YOURNAME}
   ```
 
@@ -22,17 +23,22 @@ Deploy a full web application to your namespace which uses external-dns, ingress
 
 * First, adjust your individual hostname in `web-application/deployment/ingress.yaml`
 
-* Deploy application
+* Deploy application to your namespace
 
   ```shell
   kubectl apply -f web-application/deployment/web-application.yaml
   ```
 
-* Deploy ingress resource
+* Deploy ingress resource to your namespace
 
   ```shell
   kubectl apply -f web-application/deployment/ingress.yaml
   ```
+
+## Verify
+
+* Wait a minute until DNS has propagated
+* Visit URL https://web-application-<YOURNAME>.workshop.metakube.org
 
 ## Conclusion
 

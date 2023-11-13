@@ -15,10 +15,9 @@ spec:
         app: nginx
     spec:
       affinity:
-        # Pod soll NICHT auf und der selben Node gescheduled werden
+        # multiple Pods should NOT be scheduled on the same Node
         podAntiAffinity:
-          # aber wenn er schon mal drauf läuft, dann egal
-          #preferredDuringSchedulingIgnoredDuringExecution:
+          # if such a Pod is already running on that Node, then we cannot schedule it
           requiredDuringSchedulingIgnoredDuringExecution:
           - labelSelector:
               matchExpressions:
@@ -28,5 +27,5 @@ spec:
                 - nginx
             topologyKey: kubernetes.io/hostname
       containers:
-      - image: nginx:1.23.0
+      - image: nginx:1.25.0
         name: nginx

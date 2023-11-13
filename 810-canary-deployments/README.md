@@ -7,10 +7,11 @@
 * Before you begin with the actual exercise please make sure to follow these steps to work in your own environment:
 
   ```shell
-  read -p "Please enter your name (without blanks e.g. johndoe): " YOURNAME
-  export YOURNAME
+  # enter your name
+  # example:
+  # export YOURNAME=janedoe
+  export YOURNAME=<YOURNAME>
   kubectl create ns ${YOURNAME}
-  kubectl label namespace ${YOURNAME} deepdive-pgd=true
   kubectl config set-context --current --namespace=${YOURNAME}
   ```
 
@@ -30,7 +31,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
 ## Blue
 
-* Deploy blue application, service and ingress resource
+* Deploy blue application, service and ingress resource (wait 1 minute for DNS to propagate)
 
   ```shell
   kubectl apply -f web-application-blue/
@@ -42,7 +43,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
   ```shell
   # check k8s resources
-  kubectl get po,svc,ing
+  kubectl get po,svc,ing -l version=blue
   
   # send requests to our blue application
   for i in {1..10} ; do curl https://web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
@@ -50,20 +51,20 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
 ### Result
 
-```shell
-"echo-blue"
-"echo-blue"
-"echo-blue"
-"echo-blue"
-[...]
-"echo-blue"
-```
+  ```shell
+  "echo-blue"
+  "echo-blue"
+  "echo-blue"
+  "echo-blue"
+  [...]
+  "echo-blue"
+  ```
 
 ---
 
 ## Green (Canary)
 
-* Deploy green application, service and ingress resource
+* Deploy green application, service and ingress resource  (wait 1 minute for DNS to propagate)
 
   ```shell
   kubectl apply -f web-application-green/
@@ -75,7 +76,7 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
   ```shell
   # check k8s resources
-  kubectl get po,svc,ing
+  kubectl get po,svc,ing -l version=green
   
   # send requests to our blue application
   for i in {1..10} ; do curl https://web-application-canary-${YOURNAME}.workshop.metakube.org/echo ; done
@@ -83,14 +84,14 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
 ### Result
 
-```shell
-"echo-blue"
-"echo-green"
-"echo-blue"
-"echo-green"
-[...]
-"echo-blue"
-```
+  ```shell
+  "echo-blue"
+  "echo-green"
+  "echo-blue"
+  "echo-green"
+  [...]
+  "echo-blue"
+  ```
 
 ---
 
@@ -99,10 +100,10 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 * Increase the weight value in the file `web-application-green/ingress-green-canary.yaml` in steps like 50, 75, 100
 
   ```yaml
-  [...]
+  # [...]
   annotations:
     nginx.ingress.kubernetes.io/canary-weight: "75" # <-- please adjust later up to 100
-  [...]
+  # [...]
   ```
 
 * After each increase update the ingress resource in the cluster:
@@ -120,14 +121,14 @@ Create a "blue" and "green" deployment. Shift the traffic over to "green" contin
 
 ### Result
 
-```shell
-"echo-green"
-"echo-green"
-"echo-green"
-"echo-green"
-[...]
-"echo-blue"
-```
+  ```shell
+  "echo-green"
+  "echo-green"
+  "echo-green"
+  "echo-green"
+  [...]
+  "echo-blue"
+  ```
 
 ---
 

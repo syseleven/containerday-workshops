@@ -18,9 +18,9 @@ spec:
         - name: echo
           image: "docker.io/hashicorp/http-echo"
           args:
-            - -listen=:80
+            - -listen=:8080
             - --text="echo-green"
           ports:
             - name: http
               protocol: TCP
-              containerPort: 80
+              containerPort: 8080

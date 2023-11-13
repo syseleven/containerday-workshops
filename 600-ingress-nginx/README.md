@@ -25,7 +25,15 @@
   helm upgrade --install -f values.yaml --namespace ingress-nginx ingress-nginx ingress-nginx/ingress-nginx --version=4.6.0
   ```
 
-* Verify ingress-nginx is up and running
+---
+
+* **Note!** Please be a little patient since we deploy a DaemonSet on all Nodes!
+* Also creating the LoadBalancer service might take a few minutes!
+
+---
+
+### Verify
+* Check if ingress-nginx is up and running
 
   ```shell
   kubectl --namespace ingress-nginx get services -o wide -w ingress-nginx-controller

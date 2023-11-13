@@ -15,7 +15,7 @@ spec:
         app: nginx-probes
     spec:
       containers:
-      - image: nginx:1.23.0
+      - image: nginx:1.25.0
         name: nginx-probes
         livenessProbe:
           exec:

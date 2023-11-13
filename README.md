@@ -1,16 +1,27 @@
-# Production Grade Deployments
+# K8s Deep Dive 
 
-## Kubernetes Deep Dive Workshop
+## Mastering Production-Grade Deployments with Practical Insights and Hands-On Exercises
 
-### Beschreibung
+### Description
 
-In diesem Deep-Dive Workshop erhältst Du einen tieferen Einblick in Production Grade Deployments. Eine Mischung aus Theorie, praktischen Beispielen und Übungsaufgaben inkl. Testumgebung erwartet Dich. Während des Workshops werden den Teilnehmenden fertige Kubernetes Cluster zur Verfügung gestellt.
+In this workshop you will get a deeper insight into production grade deployments. A mixture of theory, practical examples and exercises including a test environment is waiting for you. During the workshop, participants will be provided with ready-made Kubernetes clusters. This course is aimed at DevOps, Cloud Platform Operations, Cloud Admins. Participants should have the following prior knowledge:
+- Kubernetes basics
+- You have already had hands-on experience running on Kubernetes
+- Fundamentals of Helm charts (gotemplates, creating and running container images)
+- You are basically capable of rolling out helm charts in Kubernetes
+- Interest in cloud-native technologies
 
-Dieser Kurs richtet sich an DevOps, Cloud-Platform Operations, Cloud-Admins. Teilnehmer:innen sollten folgende Vorkenntnisse mitbringen:
+### Requirements
 
-- Grundlagen zu Kubernetes:
-  
-  Du hast schon praktische Erfahrungen im Betrieb auf Kubernetes sammeln können
-- Grundlagen zu Helm-Charts (gotemplates, erstellen und betreiben von Container Images)
-- Du bist grundsätzlich dazu in der Lage, Helm-Charts in Kubernetes auszurollen
-- Interesse an cloud-native Technologien
+- your private notebook (MacOS / Linux recommended)
+- shell console
+- kubectl client installed (v1.25+) - [Installation instructions](https://kubernetes.io/docs/tasks/tools/#kubectl)
+- helm client installed (v3.10+) - [Installation instructions](https://helm.sh/docs/intro/install/)
+
+### Further Instructions
+
+https://nextcloud.syseleven.de/index.php/s/gddjBXEQxgBLxby
+
+or
+
+https://sys11.it/production-grade-2023
