@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: insecure-nginx
+    exercise: security
+  name: insecure-nginx
+spec:
+  securityContext:
+    runAsNonRoot: false
+  containers:
+  - image: nginx
+    name: insecure-nginx
+    securityContext:
+      # might be insecure
+      privileged: true
+      capabilities:
+        add: ["SYS_TIME", "NET_ADMIN"]
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always

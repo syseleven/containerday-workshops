@@ -3,9 +3,14 @@ kind: Pod
 metadata:
   labels:
     run: secure-nginx
+    exercise: security
   name: secure-nginx
 spec:
+  # reduce attack surface
+  automountServiceAccountToken: false
+  # on Pod level
   securityContext:
+    # must be supported by image
     runAsNonRoot: false
   containers:
   - image: nginx
@@ -15,14 +20,20 @@ spec:
       name: cache-volume
     - mountPath: /var/run
       name: run-volume
-    resources: {}
+    # on Container level
     securityContext:
+      # fs read-only
       readOnlyRootFilesystem: true
+      # run container as privileged
       privileged: false
+      # enforce Linux kernel feature "no_new_privs"
+      allowPrivilegeEscalation: false
+      # control Linux capabilities
       capabilities:
         drop: ["SYS_TIME", "NET_ADMIN"]
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  # add emptydir volumes for application to work
   volumes:
   - name: cache-volume
     emptyDir:
