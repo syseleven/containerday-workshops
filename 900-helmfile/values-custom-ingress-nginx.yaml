@@ -1,0 +1,44 @@
+controller:
+#  # Activate after successful cert-manager installation
+#  extraArgs:
+#    default-ssl-certificate: ingress-nginx/workshop-tls-cert
+
+  # deploy a Pod on every node
+  kind: DaemonSet
+
+  # only nodes with a ingress-controller Pod can answer HTTP requests
+  # this avoids NAT, network hops and TCP conntrack table exhaustion
+  service:
+    externalTrafficPolicy: Local
+
+  # obsolete due to daemonset
+  # replicaCount: 3
+
+  minAvailable: 1
+
+  resources:
+    limits:
+      cpu: 400m
+      memory: 256Mi
+    requests:
+      cpu: 180m
+      memory: 128Mi
+
+  autoscaling:
+    enabled: false
+    minReplicas: 3
+    maxReplicas: 6
+    targetCPUUtilizationPercentage: 50
+    targetMemoryUtilizationPercentage: 50
+
+  # important for HPA
+  metrics:
+    enabled: true
+
+    service:
+      annotations:
+        prometheus.io/scrape: "true"
+        prometheus.io/port: "10254"
+
+defaultBackend:
+  enabled: true
