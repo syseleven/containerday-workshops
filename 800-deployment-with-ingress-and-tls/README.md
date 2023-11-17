@@ -32,13 +32,16 @@ Deploy a full web application to your namespace which uses external-dns, ingress
 * Deploy ingress resource to your namespace
 
   ```shell
+  # Do not foget to set you personal namespace!
+  kubectl config set-context --current --namespace=${YOURNAME}
+  
   kubectl apply -f web-application/deployment/ingress.yaml
   ```
 
 ## Verify
 
 * Wait a minute until DNS has propagated
-* Visit URL https://web-application-<YOURNAME>.workshop.metakube.org
+* Visit URL https://web-application-YOURNAME.workshop.metakube.org
 
 ## Conclusion
 

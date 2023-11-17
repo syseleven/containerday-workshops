@@ -33,3 +33,21 @@ In this workshop you will get a deeper insight into production grade deployments
 Will be updated prior to the workshop date.
 
 https://sys11.it/production-grade-2023
+
+### Docker Images used
+
+```text
+nginx:1.24.0
+nginx:1.25.0
+gcr.io/google_containers/hpa-example
+busybox
+nginxinc/nginx-unprivileged:1.25-alpine
+nginx
+syseleven/metakube-hello:1.0.0
+docker.io/bitnami/external-dns:0.13.4-debian-11-r11
+registry.k8s.io/ingress-nginx/controller:v1.7.0@sha256:7612338342a1e7b8090bef78f2a04fffcadd548ccaabe8a47bf7758ff549a5f7
+docker.io/hashicorp/http-echo
+quay.io/jetstack/cert-manager-controller:v1.11.1
+quay.io/jetstack/cert-manager-cainjector:v1.11.1
+quay.io/jetstack/cert-manager-webhook:v1.11.1
+```

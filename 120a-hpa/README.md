@@ -73,7 +73,7 @@ Additionally we deploy a `horizontalPodAutoscaler` to scale pods up and down dyn
   metadata:
     name: php-apache
   spec:
-    maxReplicas: 10
+    maxReplicas: 5
     minReplicas: 1
     scaleTargetRef:
       apiVersion: apps/v1
@@ -119,6 +119,7 @@ Optional:
   * You need to run the scenario with two terminal windows.
 
   ```shell
+  export YOURNME=<YOURNAME> # replace with your name
   kubectl port-forward svc/php-apache 8080:80
   kubectl logs -f -l app=php-apache --all-containers
   ```

@@ -4,6 +4,13 @@ metadata:
   name: web-application
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: "20m"
+# If there was no wildcard certificate prepared yet, the following
+# annotation and label would instruct cert-manager to create a certificate
+# instantly.
+#
+#    cert-manager.io/cluster-issuer: letsencrypt-production
+#  labels:
+#    cert-manager.io/solver: dns01
 spec:
   ingressClassName: nginx
   tls:

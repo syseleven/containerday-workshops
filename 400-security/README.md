@@ -21,6 +21,8 @@
 
 ## Part 1 - Pod and Container Security
 
+**Task:** Deploy a Pod with proper security features.
+
 * First view `secure-pod.yaml` manifest and inspect the security definitions made.
 
 * Deploy the secure pod
@@ -38,7 +40,8 @@
   $ whoami
   $ id
   $ date -s 23:00:00
-  $ touch /etc/test.txt
+  $ touch /etc/test
+  $ touch /tmp/test
   $ exit
   ```
 
