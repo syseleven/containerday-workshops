@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    run: gvisorpod
+  name: gvisorpod
+spec:
+  # softly push the Pod to the dedicated Node
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: runtime
+            operator: Exists
+  # make use of the new runtimeClass
+  runtimeClassName: gvisor
+  # tolerate the taint of the dedicated Node
+  tolerations:
+  - key: "runtime"
+    operator: "Equal"
+    value: "gvisor"
+    effect: "NoSchedule"
+  containers:
+  - image: nginx
+    name: gvisorpod
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
