@@ -1,16 +1,16 @@
-# gvisor as RuntimeClass
+# Container sandboxing with gVisor
 
 ## Introduction
 
 Kubernetes can make use of a runtimeClass to run particular Pods on them.
 
-The runtime gvisor (runsc) is a handler which works as a kernel proxy for the Pod.
+The runtime gVisor (runsc) is a container sandbox which works as a kernel proxy for the Pod.
 Hereby it adds a layer of security around a Pod and filters syscalls made by the Pod.
-Think of gvisor as of "a kernel in user space".
+Think of gVisor as of "a kernel in user space".
 
 ## Task
 
-Install and use gvisor as a runtimeClass in your cluster.
+Install and use gVisor as a runtime in your cluster.
 
 **This installation is required only once per cluster. (Only 1 participant!)**
 
@@ -46,7 +46,7 @@ kubcetl taint <NODENAME> runtime=gvisor:NoSchedule
 kubectl label <NODENAME> runtime=gvisor
 ```
 
-## Install gvisor on a dedicated Node
+## Install gVisor on a dedicated Node
 
 * Connect to the node via node-shell
 
@@ -114,7 +114,7 @@ kubectl -n ${YOURNAME} apply -f gvisorpod.yaml
 
 ## Verify
 
-* Get the kernel version of the gvisor Pod
+* Get the kernel version of the gVisor Pod
 
 ```shell
 kubectl -n ${YOURNAME} exec -it gvisorpod -- uname -a
@@ -139,10 +139,8 @@ kubectl -n ${YOURNAME} exec -it <PODNAME> -- uname -a
 
 ## Reference
 
-* gvisor documentation
-
-https://gvisor.dev/docs/user_guide/install/#install-latest
-
-https://gvisor.dev/docs/user_guide/containerd/quick_start/
+* gVisor documentation
+  * https://gvisor.dev/docs/user_guide/install/#install-latest
+  * https://gvisor.dev/docs/user_guide/containerd/quick_start/
 
 * RuntimeClass [documentation](https://kubernetes.io/docs/concepts/containers/runtime-class/)
