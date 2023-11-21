@@ -92,7 +92,7 @@ runtime_type = "io.containerd.runsc.v1"
 ...
 ```
 
-* Restart containerd service (your node-shell will be closed and you have to reconnect)
+* Restart containerd service (your node-shell will be closed)
 
 ```shell
 systemctl restart containerd
@@ -107,7 +107,7 @@ kubectl apply -f runtimeclass.yaml
 ## Run a Pod that makes use of the RuntimeClass
 
 ```shell
-kubectl -n ${YOURNAME} apply -f gvisor-pod.yaml
+kubectl -n ${YOURNAME} apply -f gvisorpod.yaml
 ```
 
 ---
