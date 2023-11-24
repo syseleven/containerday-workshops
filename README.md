@@ -30,9 +30,7 @@ In this workshop you will get a deeper insight into production grade deployments
 
 ### Further Course Instructions
 
-Will be updated prior to the workshop date.
-
-https://sys11.it/production-grade-2023
+Will be updated prior to the workshop date...
 
 ### Docker Images used
 

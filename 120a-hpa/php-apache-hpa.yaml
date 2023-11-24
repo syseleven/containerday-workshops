@@ -10,5 +10,5 @@ spec:
     kind: Deployment
     name: php-apache
   # target refers to amount of all CPU requests in the Pod
-  # to make HPA work, setting CPU requests is mndatory
+  # to make HPA work, setting CPU requests is mandatory
   targetCPUUtilizationPercentage: 25
